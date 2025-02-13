@@ -43,6 +43,15 @@ RUN \
   chown -R 1000:0 /home/kasm-user && \
   rm -Rf ${INST_DIR}
 
+# Remove current link
+RUN rm -f /usr/bin/x-www-browser
+
+# Create a new link
+RUN ln -s /usr/lib/chromium-browser/chromium-browser /usr/bin/x-www-browser
+
+# Set default browser
+RUN update-alternatives --config x-www-browser
+
 # Change root password
 RUN echo "root:123456" | chpasswd
 
