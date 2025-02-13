@@ -43,6 +43,12 @@ RUN \
   chown -R 1000:0 /home/kasm-user && \
   rm -Rf ${INST_DIR}
 
+# Change root password
+RUN echo "root:123456" | chpasswd
+
+# Change kasm-user password
+RUN echo "kasm-user:123456" | chpasswd
+
 # Userspace Runtime
 ENV HOME /home/kasm-user
 WORKDIR $HOME
