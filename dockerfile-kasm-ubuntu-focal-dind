@@ -17,7 +17,7 @@ ENV DEBUG=false \
     INST_SCRIPTS="/ubuntu/install/dind/install_dind.sh \
                   /ubuntu/install/tools/install_tools_deluxe.sh \
                   /ubuntu/install/misc/install_tools.sh \
-                  /ubuntu/install/chromium/install_chromium.sh \
+                  /ubuntu/install/chrome/install_chrome.sh \
                   /ubuntu/install/vs_code/install_vs_code.sh \
                   /ubuntu/install/cleanup/cleanup.sh"
 
@@ -45,7 +45,7 @@ RUN \
 RUN rm -f /usr/bin/x-www-browser
 
 # Create a new link
-RUN ln -s /usr/lib/chromium-browser/chromium-browser /usr/bin/x-www-browser
+RUN ln -s /opt/google/chrome/google-chrome /usr/bin/x-www-browser
 
 # Set default browser
 RUN update-alternatives --config x-www-browser
