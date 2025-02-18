@@ -41,7 +41,7 @@ RUN \
   chown -R 1000:0 /home/kasm-user && \
   rm -Rf ${INST_DIR}
 
-# Create a new link
+# Set Chrome as default browser
 RUN update-alternatives --install /usr/bin/x-www-browser x-www-browser /opt/google/chrome/google-chrome 100
 RUN update-alternatives --set x-www-browser /opt/google/chrome/google-chrome
 
